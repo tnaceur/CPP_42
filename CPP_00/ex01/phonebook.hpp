@@ -7,12 +7,8 @@
 class phonebook {
     contact list[8];
     public:
-        std::string    c_get(int i, int j){
-            return list[i].getter(j);
-        };
-        void    c_set(int i, int j, std::string data){
-            return list[i].setter(j, data);
-        };
+        std::string    c_get(int i, int j);
+        void    c_set(int i, int j, std::string data);
 };
 
 #endif
