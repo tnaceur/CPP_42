@@ -4,12 +4,12 @@ SRCS = main.cpp\
 
 RM = rm -rf
 OBJ = $(SRCS:.cpp=.o)
-
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-		   g++ $(CFLAG) $(OBJ) -o $(NAME)
+		   g++ $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean :
 		$(RM) $(OBJ)

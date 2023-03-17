@@ -1,5 +1,5 @@
-#ifndef LIB_HPP
-#define LIB_HPP
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 
 #include <iostream>
 
@@ -34,17 +34,6 @@ public:
             return (secret);
         return NULL;
     };
-};
-
-class phonebook {
-    contact list[8];
-    public:
-        std::string    c_get(int i, int j){
-            return list[i].getter(j);
-        };
-        void    c_set(int i, int j, std::string data){
-            return list[i].setter(j, data);
-        };
 };
 
 #endif
