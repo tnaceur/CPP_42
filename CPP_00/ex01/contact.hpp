@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-class contact
+class Contact
 {
     std::string f_name, l_name, nickname, phone, secret;
 public:

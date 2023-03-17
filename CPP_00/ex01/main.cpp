@@ -1,47 +1,8 @@
-#include "phonebook.hpp"
-
-void contact::setter(int n, std::string data)
-{
-    if (n == 1)
-        f_name = data;
-    else if (n == 2)
-        l_name = data;
-    else if (n == 3)
-        nickname = data;
-    else if (n == 4)
-        phone = data;
-    else if (n == 5)
-        secret = data;
-}
-
-std::string contact::getter(int n)
-{
-    if (n == 1)
-        return (f_name);
-    else if (n == 2)
-        return (l_name);
-    else if (n == 3)
-        return (nickname);
-    else if (n == 4)
-        return (phone);
-    else if (n == 5)
-        return (secret);
-    return NULL;
-}
-
-std::string    phonebook::c_get(int i, int j)
-{
-    return list[i].getter(j);
-}
-
-void    phonebook::c_set(int i, int j, std::string data)
-{
-    return list[i].setter(j, data);
-}
+#include "PhoneBook.hpp"
 
 int main()
 {
-    phonebook   p;
+    PhoneBook   p;
     std::string line, data, i;
     int index, l, c_num;
 

@@ -2,10 +2,10 @@
 #define PHONBOOK_HPP
 
 #include <iostream>
-#include "contact.hpp"
+#include "Contact.hpp"
 
-class phonebook {
-    contact list[8];
+class PhoneBook {
+    Contact list[8];
     public:
         std::string    c_get(int i, int j);
         void    c_set(int i, int j, std::string data);
