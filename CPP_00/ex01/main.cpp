@@ -16,30 +16,65 @@ int main()
         // ADD COMMAND
         if (line == "ADD")
         {
-            std::cout << "Enter first name : " ;
-            std::getline(std::cin, data);
-            if (std::cin.eof())
-                exit(0);
+            while (1)
+            {
+                std::cout << "Enter first name : " ;
+                std::getline(std::cin, data);
+                if (std::cin.eof())
+                    exit(0);
+                if (data.empty())
+                    std::cout << "Empty String" << std::endl;
+                else
+                    break ;
+            }
             p.c_set(index, 1, data);
-            std::cout << "Enter last name : " ;
-            std::getline(std::cin, data);
-            if (std::cin.eof())
-                exit(0);
+            while (1)
+            {
+                std::cout << "Enter last name : " ;
+                std::getline(std::cin, data);
+                if (std::cin.eof())
+                    exit(0);
+                if (data.empty())
+                    std::cout << "Empty String" << std::endl;
+                else
+                    break ;
+            }
             p.c_set(index, 2, data);
-            std::cout << "Enter nickname : " ;
-            std::getline(std::cin, data);
-            if (std::cin.eof())
-                exit(0);
+            while (1)
+            {
+                std::cout << "Enter nickname : " ;
+                std::getline(std::cin, data);
+                if (std::cin.eof())
+                    exit(0);
+                if (data.empty())
+                    std::cout << "Empty String" << std::endl;
+                else
+                    break ;
+            }
             p.c_set(index, 3, data);
-            std::cout << "Enter phone number : " ;
-            std::getline(std::cin, data);
-            if (std::cin.eof())
-                exit(0);
+            while (1)
+            {
+                std::cout << "Enter phone number : " ;
+                std::getline(std::cin, data);
+                if (std::cin.eof())
+                    exit(0);
+                if (data.empty())
+                    std::cout << "Empty String" << std::endl;
+                else
+                    break ;
+            }
             p.c_set(index, 4, data);
-            std::cout << "Enter your darkest secret : " ;
-            std::getline(std::cin, data);
-            if (std::cin.eof())
-                exit(0);
+            while (1)
+            {
+                std::cout << "Enter your darkest secret : " ;
+                std::getline(std::cin, data);
+                if (std::cin.eof())
+                    exit(0);
+                if (data.empty())
+                    std::cout << "Empty String" << std::endl;
+                else
+                    break ;
+            }
             p.c_set(index, 5, data);
             index++;
             if (index == 8)
