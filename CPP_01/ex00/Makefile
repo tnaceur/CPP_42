@@ -1,6 +1,7 @@
-NAME = PhoneBook
+NAME = BraiiiiiiinnnzzzZ
 
 SRCS = main.cpp\
+		Zombie.cpp\
 
 RM = rm -rf
 OBJ = $(SRCS:.cpp=.o)

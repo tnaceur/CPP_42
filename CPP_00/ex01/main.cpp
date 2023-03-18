@@ -1,4 +1,52 @@
 #include "PhoneBook.hpp"
+#include <iomanip>
+
+std::string    enter_data(std::string msg)
+{
+    std::string data;
+    while (1)
+    {
+        std::cout << msg;
+        std::getline(std::cin, data);
+        if (std::cin.eof())
+            exit(0);
+        if (data.empty())
+            std::cout << "Empty String" << std::endl;
+        else
+            break ;
+    }
+    return  (data);
+}
+
+void    print_data(std::string s)
+{
+    for (int i = 0; s[i] && i < 10; i++)
+    {
+        if (i == 9)
+        {
+            if (s.length() > 10)
+            {
+                std::cout << ".";
+                break ;
+            }
+        }
+        std::cout << s[i];
+    }
+}
+
+void    Search(PhoneBook p, int j)
+{
+
+    std::cout << std::setw(9) << j << "|";
+    for (int i = 1; i < 4; i++)
+    {
+        std::cout << std::setw((int)(10 - p.c_get(j, i).length()) + 1);
+        print_data(p.c_get(j, i));
+        if (i < 3)
+            std::cout << "|";
+    }
+    std::cout << std::endl;
+}
 
 int main()
 {
@@ -16,66 +64,11 @@ int main()
         // ADD COMMAND
         if (line == "ADD")
         {
-            while (1)
-            {
-                std::cout << "Enter first name : " ;
-                std::getline(std::cin, data);
-                if (std::cin.eof())
-                    exit(0);
-                if (data.empty())
-                    std::cout << "Empty String" << std::endl;
-                else
-                    break ;
-            }
-            p.c_set(index, 1, data);
-            while (1)
-            {
-                std::cout << "Enter last name : " ;
-                std::getline(std::cin, data);
-                if (std::cin.eof())
-                    exit(0);
-                if (data.empty())
-                    std::cout << "Empty String" << std::endl;
-                else
-                    break ;
-            }
-            p.c_set(index, 2, data);
-            while (1)
-            {
-                std::cout << "Enter nickname : " ;
-                std::getline(std::cin, data);
-                if (std::cin.eof())
-                    exit(0);
-                if (data.empty())
-                    std::cout << "Empty String" << std::endl;
-                else
-                    break ;
-            }
-            p.c_set(index, 3, data);
-            while (1)
-            {
-                std::cout << "Enter phone number : " ;
-                std::getline(std::cin, data);
-                if (std::cin.eof())
-                    exit(0);
-                if (data.empty())
-                    std::cout << "Empty String" << std::endl;
-                else
-                    break ;
-            }
-            p.c_set(index, 4, data);
-            while (1)
-            {
-                std::cout << "Enter your darkest secret : " ;
-                std::getline(std::cin, data);
-                if (std::cin.eof())
-                    exit(0);
-                if (data.empty())
-                    std::cout << "Empty String" << std::endl;
-                else
-                    break ;
-            }
-            p.c_set(index, 5, data);
+            p.c_set(index, 1, enter_data("Enter first name : "));
+            p.c_set(index, 2, enter_data("Enter last name : "));
+            p.c_set(index, 3, enter_data("Enter first nickname : "));
+            p.c_set(index, 4, enter_data("Enter phone number : "));
+            p.c_set(index, 5, enter_data("Enter your darkest secret : "));
             index++;
             if (index == 8)
             {
@@ -91,61 +84,14 @@ int main()
         {
             if (l)
             {
-                std::cout << "index| fist name| last name|  nickname"<< std::endl;
-                std::cout << "--------------------------------------"<< std::endl;
+                std::cout << "    index| fist name| last name|  nickname"<< std::endl;
+                std::cout << "    --------------------------------------"<< std::endl;
                 for (int j = 0; j < l; j++)
-                {
-                    std::cout << "    " << j << "|";
-                    for (int a = 0; a < (int)(10 - p.c_get(j, 1).length()) && p.c_get(j, 1).length() < 10; a++)
-                        std::cout << " ";
-                    for (int i = 0; p.c_get(j, 1)[i] && i < 10; i++)
-                    {
-                        if (i == 9)
-                        {
-                            if (p.c_get(j, 1).length() > 10)
-                            {
-                                std::cout << ".";
-                                break;
-                            }
-                        }
-                        std::cout << p.c_get(j, 1)[i];
-                    }
-                    std::cout << "|";
-                    for (int a = 0; a < (int)(10 - p.c_get(j, 2).length()) && p.c_get(j, 2).length() < 10; a++)
-                        std::cout << " ";
-                    for (int i = 0; p.c_get(j, 2)[i] && i < 10; i++)
-                    {
-                        if (i == 9)
-                        {
-                            if (p.c_get(j, 2).length() > 10)
-                            {
-                                std::cout << ".";
-                                break ;
-                            }
-                        }
-                        std::cout << p.c_get(j, 2)[i];
-                    }
-                    std::cout << "|";
-                    for (int a = 0; a < (int)(10 - p.c_get(j, 3).length()) && p.c_get(j, 3).length() < 10; a++)
-                        std::cout << " ";
-                    for (int i = 0; p.c_get(j, 3)[i] && i < 10; i++)
-                    {
-                        if (i == 9)
-                        {
-                            if (p.c_get(j, 3).length() > 10)
-                            {
-                                std::cout << ".";
-                                break;
-                            }
-                        }
-                        std::cout << p.c_get(j, 3)[i];
-                    }
-                    std::cout << std::endl;
-                }
-                std::cout << "--------------------------------------"<< std::endl;
-                std::cout << "Contact N° : ";
+                    Search(p, j);
+                std::cout << "    --------------------------------------"<< std::endl;
+                std::cout << "    Contact N° : ";
                 std::getline(std::cin, i);
-                std::cout << "--------------------------------------"<< std::endl;
+                std::cout << "    --------------------------------------"<< std::endl;
                 if (std::cin.eof())
                     exit(0);
 				if (i.length() == 1)
