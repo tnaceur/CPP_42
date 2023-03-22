@@ -1,9 +1,8 @@
-NAME = BraiiiiiiinnnzzzZ
+NAME =  Moar_brainz
 
 SRCS = main.cpp\
 		Zombie.cpp\
-		newZombie.cpp\
-		randomChump.cpp\
+		zombieHorde.cpp\
 
 RM = rm -rf
 OBJ = $(SRCS:.cpp=.o)

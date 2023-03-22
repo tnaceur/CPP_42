@@ -2,8 +2,9 @@
 
 int main()
 {
-    Zombie  zombie;
+    Zombie *zombie;
 
-    zombie.set_name("FOO");
-    zombie.announce();
+    randomChump("hello world");
+    zombie = newZombie("taha");
+    delete zombie;
 }
