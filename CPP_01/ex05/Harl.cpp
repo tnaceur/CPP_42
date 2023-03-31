@@ -25,7 +25,7 @@ void    Harl::complain(std::string level)
     std::string str[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     void (Harl::*function[]) (void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
     int i = 0;
-    for ( i = 0; i < 4; i++){
+    for (i = 0; i < 4; i++){
         if (str[i] == level)
             break ;
     }
