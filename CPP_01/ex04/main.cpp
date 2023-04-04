@@ -1,26 +1,34 @@
-#include <iostream>
-#include <fcntl.h>
-#include <fstream>
-#include <string>
-#include <sstream>
+#include "main.hpp"
 
-int main(void)
+int main(int ac, char **av)
 {
-    std::string f = "file";
+    if (ac != 4)
+        return (std::cerr << "Wrong Arguments" << std::endl, 1);
+    std::string f = av[1], to_find = av[2] , to_repl = av[3], s;
+    char c;
     std::ifstream file(f);
-    std::ofstream repl(f + ".replace");
-    std::stringstream buffer;
-    std::string s, a = "taha" , b = "naceur";
-    buffer << file.rdbuf();
-    s = buffer.str();
-    size_t pos = s.find(a);
+    if (!file.is_open())
+        return (std::cerr << "File Error" << std::endl, 1);
+    if (to_find.empty())
+        return (std::cerr << "Empty String To Search" << std::endl, 1);
+    while (file.get(c))
+        s += c;
+    if (!c)
+        return (std::cerr << "Empty File\n", 1);
+    size_t pos = s.find(to_find);
+    if (pos == std::string::npos)
+        return (std::cout << "Nothing To Replace" << std::endl, 1);
     while (pos != std::string::npos)
     {
-        std::string before = s.substr(0, pos);
-        std::string after = s.substr(pos + a.length());
-        s = before + b + after;
-        pos = s.find(a);
+        if (to_find == to_repl)
+            return (std::cout << "Nothing To Change" << std::endl, 1);
+        s.erase(pos, to_find.length());
+        s.insert(pos, to_repl);
+        pos = s.find(to_find, pos + to_repl.length());
     }
+    std::ofstream repl(f + ".replace");
+    if (!repl.is_open())
+        return (std::cerr << "File Error" << std::endl, 1);
     repl << s;
     repl.close();
     file.close();

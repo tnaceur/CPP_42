@@ -10,6 +10,10 @@ void    Zombie::set_name(std::string a)
     name = a;
 }
 
+Zombie::Zombie(){
+    
+}
+
 Zombie::~Zombie()
 {
     std::cout << name << " : the destructure is called" << std::endl;
