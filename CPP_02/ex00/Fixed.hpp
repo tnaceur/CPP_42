@@ -6,7 +6,7 @@
 
 class Fixed{
     int fix;
-    static const int frac;
+    static const int frac = 8;
 public:
     Fixed();
     ~Fixed();

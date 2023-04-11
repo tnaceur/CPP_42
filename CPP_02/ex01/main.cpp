@@ -27,19 +27,15 @@ void    print_(int fixed)
 
 int main( void )
 {
-    float zzz = 4.5;
-    int temp = (zzz * (1 << 2));
-    print_(temp);
-    // print_(*ptr);
     Fixed a;
     Fixed const b( 10 );
     Fixed const c( 42.42f );
     Fixed const d( b );
-    a = Fixed(1234.4321f);
-    // std::cout << "a is " << a << std::endl;
-    // std::cout << "b is " << b << std::endl;
-    // std::cout << "c is " << c << std::endl;
-    // std::cout << "d is " << d << std::endl;
+    a = Fixed( 1234.4321f );
+    std::cout << "a is " << a << std::endl;
+    std::cout << "b is " << b << std::endl;
+    std::cout << "c is " << c << std::endl;
+    std::cout << "d is " << d << std::endl;
     std::cout << "a is " << a.toInt() << " as integer" << std::endl;
     std::cout << "b is " << b.toInt() << " as integer" << std::endl;
     std::cout << "c is " << c.toInt() << " as integer" << std::endl;

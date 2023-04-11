@@ -1,3 +1,4 @@
+
 #include "Fixed.hpp"
 
 /* Default constructor */
@@ -5,21 +6,21 @@
 Fixed::Fixed()
 {
     fix = 0;
-    std::cout << "Default constructor" << std::endl;
+    std::cout << "Default constructor called" << std::endl;
 }
 
 /* Parametrised Constructor */
 
 Fixed::Fixed(int value)
 {
-    fix = value;
-    std::cout << "Parametrised constructor" << std::endl;
+    fix = value << frac;
+    std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(float value)
 {
-    fix = value;
-    std::cout << "Parametrised constructor" << std::endl;
+    fix = roundf(value * (1 << frac));
+    std::cout << "Float constructor called" << std::endl;
 }
 
 /* Copy Assignment Operator */
@@ -49,10 +50,23 @@ Fixed::Fixed(const Fixed& a)
 /* Destructor */
 
 Fixed::~Fixed() {
-    std::cout << "Fixed Destructor" << std::endl;
+    std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::toInt () const
 {
-    return fix;
+    return (fix >> frac);
+}
+
+float Fixed::toFloat () const
+{
+    return ((float)fix / (1 << frac));
+}
+
+/* Overload Operator */
+
+std::ostream &operator<<(std::ostream &stream, const Fixed& a)
+{
+    stream << a.toFloat();
+    return stream;
 }
