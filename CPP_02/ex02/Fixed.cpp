@@ -6,7 +6,7 @@
 Fixed::Fixed()
 {
     fix = 0;
-    std::cout << "Default constructor called" << std::endl;
+    //std::cout << "Default constructor called" << std::endl;
 }
 
 /* Parametrised Constructor */
@@ -14,13 +14,13 @@ Fixed::Fixed()
 Fixed::Fixed(int value)
 {
     fix = value << frac;
-    std::cout << "Int constructor called" << std::endl;
+    //std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(float value)
 {
     fix = roundf(value * (1 << frac));
-    std::cout << "Float constructor called" << std::endl;
+    ////std::cout << "Float constructor called" << std::endl;
 }
 
 /* Copy Assignment Operator */
@@ -50,7 +50,7 @@ Fixed::Fixed(const Fixed& a)
 /* Destructor */
 
 Fixed::~Fixed() {
-    std::cout << "Destructor called" << std::endl;
+    ////std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::toInt () const
@@ -95,30 +95,81 @@ bool Fixed::operator==(const Fixed& b) const{
     return (this->getRawBits() == b.getRawBits());
 }
 
-Fixed& Fixed::operator*(const Fixed& b) const
+Fixed Fixed::operator*(const Fixed& b) const
 {
-    Fixed tmp(fix * b.getRawBits());
+    Fixed tmp;
+    tmp.setRawBits(fix * b.getRawBits());
+    tmp.setRawBits(tmp.toFloat());
     return tmp;
 }
 
-Fixed& operator++(int)
+Fixed Fixed::operator+(const Fixed& b) const
 {
     Fixed tmp;
-    tmp = *this;
+    tmp.setRawBits(fix + b.getRawBits());
+    return tmp;
+}
+
+Fixed Fixed::operator-(const Fixed& b) const
+{
+    Fixed tmp;
+    tmp.setRawBits(fix - b.getRawBits());
+    return tmp;
+}
+
+Fixed Fixed::operator/(const Fixed& b) const
+{
+    Fixed tmp((fix / b.getRawBits()));
+    return tmp;
+}
+
+Fixed Fixed::operator++(int)
+{
+    Fixed tmp = *this;
     ++fix;
     return tmp;
 }
 
-Fixed& operator++()
+Fixed Fixed::operator++()
 {
     fix++;
     return *this;
 }
 
-Fixed& Fixed::max(Fixed& a, Fixed& b) const{
+Fixed Fixed::operator--(int)
+{
+    Fixed tmp = *this;
+    --fix;
+    return tmp;
+}
+
+Fixed Fixed::operator--()
+{
+    fix--;
+    return *this;
+}
+
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b){
     if (a > b)
         return a;
-    else if (a != b)
-        return b;
-    return (a);
+    return b;
 }
+
+Fixed& Fixed::max(Fixed& a, Fixed& b){
+    if (a > b)
+        return a;
+    return b;
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b){
+    if (a < b)
+        return a;
+    return b;
+}
+
+Fixed& Fixed::min(Fixed& a, Fixed& b){
+    if (a < b)
+        return a;
+    return b;
+}
+
