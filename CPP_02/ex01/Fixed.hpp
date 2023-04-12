@@ -10,8 +10,8 @@ class Fixed{
     static const int frac = 8;
 public:
     Fixed();
-    Fixed(int);
-    Fixed(float);
+    Fixed(const int);
+    Fixed(const float);
     ~Fixed();
     Fixed &operator=(const Fixed& a);
     Fixed(const Fixed& a);

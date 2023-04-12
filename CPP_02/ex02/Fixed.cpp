@@ -14,13 +14,11 @@ Fixed::Fixed()
 Fixed::Fixed(int value)
 {
     fix = value << frac;
-    //std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(float value)
 {
     fix = roundf(value * (1 << frac));
-    ////std::cout << "Float constructor called" << std::endl;
 }
 
 /* Copy Assignment Operator */
@@ -50,7 +48,6 @@ Fixed::Fixed(const Fixed& a)
 /* Destructor */
 
 Fixed::~Fixed() {
-    ////std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::toInt () const
@@ -119,8 +116,7 @@ Fixed Fixed::operator-(const Fixed& b) const
 
 Fixed Fixed::operator/(const Fixed& b) const
 {
-    Fixed tmp((fix / b.getRawBits()));
-    return tmp;
+    return Fixed((fix / b.getRawBits()));
 }
 
 Fixed Fixed::operator++(int)
