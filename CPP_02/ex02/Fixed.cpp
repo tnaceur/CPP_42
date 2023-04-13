@@ -116,6 +116,8 @@ Fixed Fixed::operator-(const Fixed& b) const
 
 Fixed Fixed::operator/(const Fixed& b) const
 {
+    if (!b.getRawBits()){
+        std::cout << "Invalid : Devided by 0" << std::endl; exit(1);}
     return Fixed((fix / b.getRawBits()));
 }
 
