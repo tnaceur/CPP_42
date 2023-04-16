@@ -1,9 +1,9 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
-    ClapTrap p1("taha");
-    ClapTrap p2("bot");
+    ScavTrap p1("taha");
+    ScavTrap p2("bot");
     p1.print_();
     std::cout << "--------------------------" << std::endl;
     p2.print_();
@@ -18,4 +18,6 @@ int main()
     p2.print_();
     std::cout << "--------------------------" << std::endl;
     p1.print_();
+    std::cout << "--------------------------" << std::endl;
+    p2.guardGate();
 }

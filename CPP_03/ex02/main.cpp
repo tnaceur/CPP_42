@@ -1,14 +1,12 @@
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-    ClapTrap p1("taha");
-    ClapTrap p2("bot");
+    FragTrap p1("taha");
+    FragTrap p2("bot");
     p1.print_();
     std::cout << "--------------------------" << std::endl;
     p2.print_();
-    std::cout << "--------------------------" << std::endl;
-    p1.beRepaired(10);
     std::cout << "--------------------------" << std::endl;
     p1.print_();
     std::cout << "--------------------------" << std::endl;
@@ -17,5 +15,10 @@ int main()
     std::cout << "--------------------------" << std::endl;
     p2.print_();
     std::cout << "--------------------------" << std::endl;
-    p1.print_();
+    p2.beRepaired(10);
+    // std::cout << "--------------------------" << std::endl;
+    std::cout << "--------------------------" << std::endl;
+    p2.print_();
+    std::cout << "--------------------------" << std::endl;
+    p1.highFivesGuys();
 }

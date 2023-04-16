@@ -1,13 +1,13 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() : Hit_point(10) ,Energy_point(10), Attack_damage(0), Name("No_Name") {
-    std::cout << "\033[1;31mDefault Constructur called\033[0m" << std::endl;
+    std::cout << "\033[1;31mClapTrap Default Constructur called\033[0m" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& n)
     : Hit_point(10) ,Energy_point(10), Attack_damage(0) , Name(n)
 {
-    std::cout << "\033[1;34mParametrized Constructur called\033[0m" << std::endl;
+    std::cout << "\033[1;34mClapTrap Parametrized Constructur called\033[0m" << std::endl;
 }
 
 ClapTrap&  ClapTrap::operator=(const ClapTrap& other) {
@@ -20,12 +20,12 @@ ClapTrap&  ClapTrap::operator=(const ClapTrap& other) {
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
-    std::cout << "\033[1;34mCopy Constructor called\033[0m" << std::endl;
+    std::cout << "\033[1;34mClapTrap Copy Constructor called\033[0m" << std::endl;
     *this = other;
 }
 
 ClapTrap::~ClapTrap() {
-    std::cout << "\033[1;34mDestructor called\033[0m" << std::endl;
+    std::cout << "\033[1;34mClapTrap Destructor called\033[0m" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)
@@ -56,28 +56,4 @@ void    ClapTrap::beRepaired(unsigned int amount)
     std::cout << "ClapTrap " << Name << " take " << amount <<  " of heal!" << std::endl;
     Hit_point += amount;
     Energy_point--;
-}
-
-void    ClapTrap::print_() const{
-    std::cout << "Name : "  << Name << std::endl;
-    std::cout << "Hit_point : "  << Hit_point << std::endl;
-    std::cout << "Energy_point : "  << Energy_point << std::endl;
-    std::cout << "Attack_damage : "  << Attack_damage << std::endl;
-}
-
-
-std::string ClapTrap::getName() const{
-    return Name;
-}
-
-unsigned int ClapTrap::getHit() const{
-    return Hit_point;
-}
-
-unsigned int ClapTrap::getEnergy() const{
-    return Energy_point;
-}
-
-unsigned int ClapTrap::getAttack() const{
-    return Attack_damage;
 }
