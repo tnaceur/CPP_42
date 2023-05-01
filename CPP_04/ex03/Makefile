@@ -1,7 +1,10 @@
 NAME = Interface
 
-SRCS = main.cpp\
-		AMateria.cpp\
+SRCS = AMateria.cpp\
+     ICharachter.cpp\
+	 main.cpp\
+	 IMateriaSource.cpp\
+
 
 RM = rm -rf
 OBJ = $(SRCS:.cpp=.o)
