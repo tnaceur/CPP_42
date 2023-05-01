@@ -1,6 +1,7 @@
 NAME = Interface
 
 SRCS = main.cpp\
+		AMateria.cpp\
 
 RM = rm -rf
 OBJ = $(SRCS:.cpp=.o)
