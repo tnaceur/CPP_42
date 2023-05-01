@@ -3,32 +3,23 @@
 
 #include "AMateria.hpp"
 
-class ICharacter
-{
-public:
-    virtual ~ICharacter() {}
-    virtual std::string const & getName() const = 0;
-    virtual void equip(AMateria* m) = 0;
-    virtual void unequip(int idx) = 0;
-    virtual void use(int idx, ICharacter& target) = 0;
-};
 
-class character : public ICharacter
+class Character : public ICharacter
 {
 private:
     std::string name;
     AMateria *inventory[4];
 public:
-    character(){
+    Character(){
         this->name = "default";
         for (int i = 0; i < 4; i++)
             this->inventory[i] = NULL;
     }
-    character(const character &copy)
+    Character(const Character &copy)
     {
         *this = copy;
     }
-    character &operator=(const character &copy)
+    Character &operator=(const Character &copy)
     {
         this->name = copy.name;
         for (int i = 0; i < 4; i++)
@@ -40,13 +31,13 @@ public:
         }
         return (*this);
     }
-    character(std::string name)
+    Character(std::string name)
     {
         this->name = name;
         for (int i = 0; i < 4; i++)
             this->inventory[i] = NULL;
     }
-    ~character(){
+    ~Character(){
         for (int i = 0; i < 4; i++)
         {
             if (this->inventory[i] != NULL)
