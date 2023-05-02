@@ -2,7 +2,7 @@
 #include "ICharacter.hpp"
 #include "IMateriaSource.hpp"
 
-int main1()
+int main()
 {
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
@@ -20,10 +20,4 @@ int main1()
     delete me;
     delete src;
     return 0;
-}
-
-int main()
-{
-    main1();
-    system("leaks Interface");
 }
