@@ -4,6 +4,8 @@ SRCS = main.cpp\
 	    Cat.cpp\
 	    Dog.cpp\
 		Animal.cpp\
+		WrongAnimal.cpp\
+		WrongCat.cpp\
 
 RM = rm -rf
 OBJ = $(SRCS:.cpp=.o)
