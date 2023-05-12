@@ -2,6 +2,7 @@ NAME = Exception
 
 SRCS = main.cpp\
 		Bureaucrat.cpp\
+		Form.cpp\
 
 RM = rm -rf
 OBJ = $(SRCS:.cpp=.o)
