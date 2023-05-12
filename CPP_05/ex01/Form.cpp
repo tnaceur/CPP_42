@@ -4,12 +4,12 @@
 #include <string>
 
 
-Form::Form(const std::string& n, const int g, const int e) : name(n), signe(1), grade(g), grade_exec(e)
+Form::Form(const std::string& n, const int g, const int e) : name(n), signe(false), grade(g), grade_exec(e)
 {
     if (grade < 1 || grade_exec < 1)
-        throw Bureaucrat::GradeTooHighException();
+        throw Form::GradeTooHighException();
     if (grade > 150 || grade_exec > 150)
-        throw Bureaucrat::GradeTooLowException();
+        throw Form::GradeTooLowException();
 }
 
 Form::Form() : name("Default"), signe(0), grade(1), grade_exec(1)
@@ -47,6 +47,25 @@ int Form::getGrade() const
 int Form::getExec() const
 {
     return grade_exec;
+}
+
+const char *Form::GradeTooHighException::what() const throw()
+{
+    return "To High grade";
+}
+
+const char *Form::GradeTooLowException::what() const throw()
+{
+    return "To Low grade";
+}
+
+
+void    Form::beSigned(const Bureaucrat& a)
+{
+    if (a.getGrade() <= grade)
+        signe = true;
+    else
+        throw Form::GradeTooLowException();
 }
 
 std::ostream& operator<<(std::ostream& out, Form& a)
