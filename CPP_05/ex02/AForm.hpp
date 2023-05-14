@@ -25,12 +25,18 @@ class	AForm
         int getGrade() const;
         int getExec() const;
         void    beSigned(const Bureaucrat&);
+        virtual void execute(Bureaucrat const & executor) const = 0;
         class GradeTooHighException : public std::exception
         {
             public:
                 const char *what() const throw();
         };
         class GradeTooLowException : public std::exception
+        {
+            public:
+                const char *what() const throw();
+        };
+        class NotSigned : public std::exception
         {
             public:
                 const char *what() const throw();

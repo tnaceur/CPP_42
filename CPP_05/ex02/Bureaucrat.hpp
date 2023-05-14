@@ -15,6 +15,7 @@ private:
     int               grade;
 public:
     Bureaucrat();
+    ~Bureaucrat();
     Bureaucrat(const std::string n, int g);
     Bureaucrat (const Bureaucrat&);
     Bureaucrat &operator=(const Bureaucrat&);
@@ -32,8 +33,8 @@ public:
         public:
             const char *what() const throw();
     };
-    void    signForm(const Form&);
-    ~Bureaucrat(){}
+    void    executeForm(const AForm&);
+    void    signForm(const AForm&);
 };
 
 std::ostream& operator<<(std::ostream &out, Bureaucrat& a);

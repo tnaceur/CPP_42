@@ -74,3 +74,8 @@ std::ostream& operator<<(std::ostream& out, AForm& a)
     << "\nGrade : " << a.getGrade() << "\nExec_Grade : "  << a.getExec();
     return out;
 }
+
+const char *AForm::NotSigned::NotSigned::what() const throw()
+{
+    return "Form Not signed";
+}

@@ -23,6 +23,12 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat& a)
     return *this;
 }
 
+/* ********************************* Destructor ********************************* */
+
+Bureaucrat::~Bureaucrat()
+{
+}
+
 /* ************************************************************** */
 void    Bureaucrat::decrement()
 {
@@ -60,12 +66,25 @@ const std::string& Bureaucrat::getName() const
     return name;
 }
 
-void    Bureaucrat::signForm(const Form& a)
+void    Bureaucrat::signForm(const AForm& a)
 {
     if (a.getGrade() >= grade)
         std::cout << name << " signed " << a.getName() << std::endl;
     else
         std::cout << name << " couldn't sign " << a.getName() << " because the Form grade is High" << std::endl;
+}
+
+void Bureaucrat::executeForm(const AForm& a)
+{
+    try
+    {
+        a.execute(*this);
+        std::cout << name << " executes " << a.getName() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << name << " can't execute " << a.getName() << " because " << e.what() << '\n';
+    }
 }
 
 std::ostream& operator<<(std::ostream &out, Bureaucrat& a)
