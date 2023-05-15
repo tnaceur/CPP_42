@@ -79,8 +79,3 @@ const char *AForm::NotSigned::NotSigned::what() const throw()
 {
     return "Form Not signed";
 }
-
-void    AForm::setSign(bool sign)
-{
-    this->signe = sign;
-}

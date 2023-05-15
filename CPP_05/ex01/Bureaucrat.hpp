@@ -32,7 +32,7 @@ public:
         public:
             const char *what() const throw();
     };
-    void    signForm(const Form&);
+    void    signForm(Form&);
     ~Bureaucrat(){}
 };
 

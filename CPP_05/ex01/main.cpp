@@ -11,8 +11,7 @@ int main(void)
         b.signForm(a);
         a.beSigned(b);
 
-
-        std::cout << a << std::endl;
+        std::cout << b << std::endl;
         // a.increment();
         // std::cout << a << std::endl;
         // a.decrement();

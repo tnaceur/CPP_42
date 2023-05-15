@@ -74,3 +74,8 @@ std::ostream& operator<<(std::ostream& out, Form& a)
     << "\nGrade : " << a.getGrade() << "\nExec_Grade : "  << a.getExec();
     return out;
 }
+
+void    Form::setSign(bool sign)
+{
+    this->signe = sign;
+}

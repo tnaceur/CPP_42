@@ -34,7 +34,7 @@ public:
             const char *what() const throw();
     };
     void    executeForm(const AForm&);
-    void    signForm(AForm&);
+    void    signForm(const AForm&);
 };
 
 std::ostream& operator<<(std::ostream &out, Bureaucrat& a);

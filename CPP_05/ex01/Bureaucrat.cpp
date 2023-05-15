@@ -60,10 +60,13 @@ const std::string& Bureaucrat::getName() const
     return name;
 }
 
-void    Bureaucrat::signForm(const Form& a)
+void    Bureaucrat::signForm(Form& a)
 {
     if (a.getGrade() >= grade)
+    {
+        a.setSign(true);
         std::cout << name << " signed " << a.getName() << std::endl;
+    }
     else
         std::cout << name << " couldn't sign " << a.getName() << " because the Form grade is High" << std::endl;
 }
