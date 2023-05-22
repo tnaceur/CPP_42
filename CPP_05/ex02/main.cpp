@@ -25,8 +25,6 @@ int main()
         RobotomyRequestForm r("home");
         a.signForm(r);
         r.execute(a);
-        sleep(1);
-        r.execute(a);
     //     a.signForm(s);
     //     a.executeForm(s);
     //     a.signForm(p);

@@ -5,11 +5,12 @@ int main(void)
 {
     try
     {
-        Form a("taha", 1, 1);
+        Form a("form", 1, 1);
         Bureaucrat b("Taha", 1);
 
-        b.signForm(a);
         a.beSigned(b);
+        b.decrement();
+        b.signForm(a);
 
         std::cout << b << std::endl;
         // a.increment();

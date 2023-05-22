@@ -25,21 +25,19 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::execute(Bureaucrat const &a) const
 {
+    if (this->getSigne() == false)
+        throw AForm::NotSigned();
     if (a.getGrade() > this->getExec())
         throw AForm::GradeTooLowException();
-    else if (this->getSigne() == false)
-        throw AForm::NotSigned();
-    else
-    {
-        std::ofstream file(this->target + "_shrubbery");
-        file << "       _-_" << std::endl;
-        file << "    /~~   ~~\\" << std::endl;
-        file << " /~~         ~~\\" << std::endl;
-        file << "{               }" << std::endl;
-        file << " \\  _-     -_  /" << std::endl;
-        file << "   ~  \\\\ //  ~" << std::endl;
-        file << "_- -   | | _- _" << std::endl;
-        file << "  _ -  | |   -_" << std::endl;
-        file << "      // \\\\" << std::endl;
-    }
+    std::ofstream file(this->target + "_shrubbery");
+    file << "       _-_" << std::endl;
+    file << "    /~~   ~~\\" << std::endl;
+    file << " /~~         ~~\\" << std::endl;
+    file << "{               }" << std::endl;
+    file << " \\  _-     -_  /" << std::endl;
+    file << "   ~  \\\\ //  ~" << std::endl;
+    file << "_- -   | | _- _" << std::endl;
+    file << "  _ -  | |   -_" << std::endl;
+    file << "      // \\\\" << std::endl;
+    file.close();
 }

@@ -1,7 +1,6 @@
 #ifndef BUREAUCRAT_HPP
 #define  BUREAUCRAT_HPP
 
-
 #include <iostream>
 #include <exception>
 
@@ -30,10 +29,9 @@ public:
         public:
             const char *what() const throw();
     };
-    ~Bureaucrat(){}
+    ~Bureaucrat();
 };
 
 std::ostream& operator<<(std::ostream &out, Bureaucrat& a);
-
 
 #endif

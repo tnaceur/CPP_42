@@ -13,7 +13,8 @@ int main()
         AForm* rrf;
         rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
         delete rrf;
-    } catch (std::exception &e) {
+    }
+    catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
     return 1;

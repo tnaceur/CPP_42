@@ -33,7 +33,7 @@ public:
             const char *what() const throw();
     };
     void    signForm(Form&);
-    ~Bureaucrat(){}
+    ~Bureaucrat();
 };
 
 std::ostream& operator<<(std::ostream &out, Bureaucrat& a);

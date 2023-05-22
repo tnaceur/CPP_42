@@ -53,13 +53,9 @@ AForm *Intern::makeForm(const std::string& Form, const std::string& target)
 
     for (i = 0; i < 3; i++)
         if (check[i] == Form)
-            break ;
-    if (i < 3)
-    {
-        std::cout << "Intern creates " << Form << std::endl;
-        return (this->*function[1])(target);
-    }
-    else
-        throw NoForm();
-    return (this->*function[1])(target);
+        {
+            std::cout << "Intern creates " << Form << std::endl;
+            return (this->*function[1])(target);
+        }
+    throw NoForm();
 }

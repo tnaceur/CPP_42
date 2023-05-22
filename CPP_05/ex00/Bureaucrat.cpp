@@ -28,14 +28,14 @@ void    Bureaucrat::decrement()
 {
     grade++;
     if (grade > 150)
-        throw Bureaucrat::GradeTooHighException();
+        throw Bureaucrat::GradeTooLowException();
 }
 
 void    Bureaucrat::increment()
 {
     grade--;
     if (grade <= 0)
-        throw Bureaucrat::GradeTooLowException();
+        throw Bureaucrat::GradeTooHighException();
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
@@ -66,3 +66,6 @@ std::ostream& operator<<(std::ostream &out, Bureaucrat& a)
     return out;
 }
 
+Bureaucrat::~Bureaucrat()
+{
+}
