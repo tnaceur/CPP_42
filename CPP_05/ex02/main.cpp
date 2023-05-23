@@ -7,36 +7,19 @@
 
 int main()
 {
-    // Bureaucrat a("a", 1);
-    // Bureaucrat b("b", 150);
-    // ShrubberyCreationForm s("home");
-    // PresidentialPardonForm p("home");
-    // RobotomyRequestForm r("home");
-
-    // std::cout << a << std::endl;
-    // std::cout << b << std::endl;
-    // std::cout << s << std::endl;
-    // std::cout << p << std::endl;
-    // std::cout << r << std::endl;
-
     try
     {
-        Bureaucrat a("a", 1);
-        RobotomyRequestForm r("home");
+        Bureaucrat a("a", 7);
+        RobotomyRequestForm r("r");
+        ShrubberyCreationForm s("s");
+        PresidentialPardonForm p("p");
+        a.executeForm(r);
         a.signForm(r);
         r.execute(a);
-    //     a.signForm(s);
-    //     a.executeForm(s);
-    //     a.signForm(p);
-    //     a.executeForm(p);
-    //     a.signForm(r);
-    //     a.executeForm(r);
-    //     b.signForm(s);
-    //     b.executeForm(s);
-    //     b.signForm(p);
-    //     b.executeForm(p);
-    //     b.signForm(r);
-    //     b.executeForm(r);
+        s.beSigned(a);
+        a.executeForm(s);
+        p.beSigned(a);
+        p.execute(a);
     }
     catch (std::exception &e)
     {

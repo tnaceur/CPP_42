@@ -5,19 +5,22 @@ int main(void)
 {
     try
     {
-        Form a("form", 1, 1);
-        Bureaucrat b("Taha", 1);
+        Form a("form1", 1, 1);
+        Form c("form2", 2, 1);
+        Bureaucrat b("Bureaucrat1", 1);
 
-        a.beSigned(b);
+        std::cout << a << std::endl;
+        std::cout << "***********************************" << std::endl;
+        std::cout << c << std::endl;
+        std::cout << "***********************************" << std::endl;
         b.decrement();
         b.signForm(a);
-
-        std::cout << b << std::endl;
-        // a.increment();
-        // std::cout << a << std::endl;
-        // a.decrement();
-        // std::cout << a << std::endl;
-        // a.decrement();
+        c.beSigned(b);
+        std::cout << a << std::endl;
+        std::cout << "***********************************" << std::endl;
+        std::cout << c << std::endl;
+        std::cout << "***********************************" << std::endl;
+        a.beSigned(b);
     }
     catch (std::exception &e)
     {
