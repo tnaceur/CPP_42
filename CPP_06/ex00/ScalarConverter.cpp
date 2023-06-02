@@ -6,9 +6,6 @@
 #include <string>
 
 
-/* f flkhr */
-/* . f int wla char */
-
 ScalarConverter::ScalarConverter()
 {
 }

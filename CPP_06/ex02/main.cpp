@@ -2,6 +2,6 @@
 
 int main()
 {
-    Base* a = generate();
+    Base &a = *generate();
     identify(a);
 }
