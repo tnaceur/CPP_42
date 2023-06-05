@@ -3,9 +3,11 @@
 
 int main()
 {
-    Data a;
-    a = *Serializer::deserialize(300);
-    int x = Serializer::serialize(&a);
-    std::cout << x << std::endl;
+    Data *a = new Data;
+    a->x = 200;
+    uintptr_t s = Serializer::serialize(a);
+    Data *b = Serializer::deserialize(s);
+    std::cout << b->x << std::endl;
+    delete a;
     return 1;
 }

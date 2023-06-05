@@ -1,4 +1,4 @@
-NAME = convert
+NAME = dynamic
 
 SRCS = main.cpp\
 		classes.cpp\

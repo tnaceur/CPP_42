@@ -9,13 +9,12 @@ Serializer::~Serializer(){};
 
 uintptr_t Serializer::serialize(Data *ptr)
 {
-    uintptr_t *value = reinterpret_cast<uintptr_t*>(ptr);
-    return *value;
+    return reinterpret_cast<uintptr_t>(ptr);
 }
 
 Data *Serializer::deserialize(uintptr_t raw)
 {
     Data *value;
-    value = reinterpret_cast<Data*>(&raw);
+    value = reinterpret_cast<Data*>(raw);
     return value;
 }

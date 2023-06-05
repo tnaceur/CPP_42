@@ -4,7 +4,7 @@
 #include <iostream>
 
 struct Data{
-    int  x;
+    uintptr_t  x;
 };
 
 class Serializer
