@@ -1,19 +1,22 @@
 #include "Array.hpp"
+#include <cstdlib>
 #include <stdlib.h>
 
 int main()
 {
     try
     {
-        Array<int> array(10);
-        array[0] = 80;
-        array[10] = 23;
-        std::cout << array[0] << std::endl;
-        std::cout << array[9] << std::endl;
-        std::cout << array.size() << std::endl;
+        Array<int> a(11);
+
+        for (int i = 0; i < (int)a.size(); i++)
+            a[i] = i;
+        for (int i = 0; i < (int)a.size(); i++)
+            std::cout << a[i] << std::endl;
+        a[12] = 0;
     }
     catch (std::exception& e)
     {
         std::cout << e.what() << std::endl;
     }
+    return 1;
 }

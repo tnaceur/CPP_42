@@ -4,7 +4,7 @@ SRCS = main.cpp
 
 RM = rm -rf
 OBJ = $(SRCS:.cpp=.o)
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 
 all : $(NAME)
