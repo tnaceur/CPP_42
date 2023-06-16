@@ -33,13 +33,18 @@ int Span::longestSpan()
 
 int Span::shortestSpan()
 {
-    if (list.size() <= 1)
-        throw std::bad_exception();
-    std::vector<int> sorted = list;
-    std::sort(sorted.begin(), sorted.end());
-    std::vector<int>::iterator first = sorted.begin();
-    std::vector<int>::iterator last = sorted.end();
-    return (*(--last) - *first);
+    int minDistance = std::numeric_limits<int>::max();
+    int size = list.size();
+
+    for (int i = 0; i < size - 1; i++)
+    {
+        for (int j = i + 1; j < size; j++)
+        {
+            int distance = std::abs(list[i] - list[j]);
+            minDistance = std::min(minDistance, distance);
+        }
+    }
+    return minDistance;
 }
 
 void    Span::addNumber(int num)
@@ -48,4 +53,3 @@ void    Span::addNumber(int num)
         throw std::bad_alloc();
     list.push_back(num);
 }
-
