@@ -4,14 +4,14 @@
 #include <stack>
 
 template <typename T, class container=std::deque<T> >
-class MutantStack : public std::stack<T>
+class MutantStack : public std::stack<T, container>
 {
     public:
         MutantStack(){}
         ~MutantStack(){}
-        MutantStack(const MutantStack &stack)
+        MutantStack(const MutantStack &cp)
         {
-            *this = stack;
+            *this = cp;
         }
         typedef typename container::iterator iterator;
         iterator begin()

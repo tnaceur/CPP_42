@@ -15,7 +15,7 @@ int main()
         container.push_back(2);
         container.push_back(2);
         container.push_back(7);
-        easyfind(container, 17);
+        easyfind(container, 7);
         for (std::deque<int>::iterator it = container.begin(); it != container.end(); it++)
             std::cout << *it << std::endl;
     }

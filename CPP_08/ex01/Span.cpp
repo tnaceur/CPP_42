@@ -20,6 +20,18 @@ Span::~Span()
 {
 }
 
+Span::Span(const Span& cp)
+{
+    *this = cp;
+}
+
+Span& Span::operator=(const Span& cp)
+{
+    size = cp.size;
+    list = cp.list;
+    return *this;
+}
+
 int Span::longestSpan()
 {
     if (list.size() <= 1)
