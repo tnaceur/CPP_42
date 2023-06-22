@@ -57,38 +57,41 @@ void    get_value(std::vector<std::string> &lines, std::map<std::string, float>&
 {
     for (std::vector<std::string>::iterator it = lines.begin(); it != lines.end(); it++)
     {
-        std::string date = it->substr(0, it->find(" | "));
-        std::string value = it->substr(it->find(" | ") + 3);
-        if (date.length() != 10)
-            std::cout << "Error: date format is incorrect" << std::endl;
-        else
+        if (!it->empty())
         {
-            int year = std::atoi(date.substr(0, 4).c_str());
-            int month = std::atoi(date.substr(5, 2).c_str());
-            int day = std::atoi(date.substr(8, 2).c_str());
-
-            if (year < 2009 || year > 2022 || month < 1 || month > 12 || day < 1 || day > 31)
-                std::cout << "Error: bad input => " << date << std::endl;
-            else if (std::atof(value.c_str()) < 0)
-                std::cout << "Error: not a positive number" << std::endl;
-            else if (std::atof(value.c_str()) > std::numeric_limits<int>::max()
-                || std::atof(value.c_str()) < std::numeric_limits<int>::min())
-                std::cout << "Error: too large a number." << std::endl;
+            std::string date = it->substr(0, it->find(" | "));
+            std::string value = it->substr(it->find(" | ") + 3);
+            if (date.length() != 10)
+                std::cout << "Error: date format is incorrect" << std::endl;
             else
             {
-                if (data[date] == 0)
-                {
-                    // find the closest date
-                    std::string closest_date;
-                    for (std::map<std::string, float>::iterator it = data.begin(); it != data.end(); it++)
-                    {
-                        if (it->first < date)
-                            closest_date = it->first;
-                    }
-                    std::cout << date << " => " << (std::atof(value.c_str()) * data[closest_date]) << std::endl;
-                }
+                int year = std::atoi(date.substr(0, 4).c_str());
+                int month = std::atoi(date.substr(5, 2).c_str());
+                int day = std::atoi(date.substr(8, 2).c_str());
+
+                if (year < 2009 || year > 2022 || month < 1 || month > 12 || day < 1 || day > 31)
+                    std::cout << "Error: bad input => " << date << std::endl;
+                else if (std::atof(value.c_str()) < 0)
+                    std::cout << "Error: not a positive number" << std::endl;
+                else if (std::atof(value.c_str()) > std::numeric_limits<int>::max()
+                    || std::atof(value.c_str()) < std::numeric_limits<int>::min())
+                    std::cout << "Error: too large a number." << std::endl;
                 else
-                    std::cout << date << " => " << (std::atof(value.c_str()) * data[date]) << std::endl;
+                {
+                    if (data[date] == 0)
+                    {
+                        // find the closest date
+                        std::string closest_date;
+                        for (std::map<std::string, float>::iterator it = data.begin(); it != data.end(); it++)
+                        {
+                            if (it->first < date)
+                                closest_date = it->first;
+                        }
+                        std::cout << date << " => " << (std::atof(value.c_str()) * data[closest_date]) << std::endl;
+                    }
+                    else
+                        std::cout << date << " => " << (std::atof(value.c_str()) * data[date]) << std::endl;
+                }
             }
         }
     }
