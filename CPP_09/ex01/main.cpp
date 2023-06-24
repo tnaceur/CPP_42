@@ -6,7 +6,7 @@
 /*   By: tnaceur <tnaceur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 11:07:04 by tnaceur           #+#    #+#             */
-/*   Updated: 2023/06/22 11:07:35 by tnaceur          ###   ########.fr       */
+/*   Updated: 2023/06/23 20:07:46 by tnaceur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int main(int ac, char **av)
     int value1, value2, num = 0, op = 0;
     for (int i = 0; i < static_cast<int>(args.size()); i++)
     {
-        if (!std::isalnum(args[i]) && args[i] != ' ' && args[i] != '+' && args[i] != '-' && args[i] != '*' && args[i] != '/')
+        if (!std::isdigit(args[i]) && args[i] != ' ' && args[i] != '+' && args[i] != '-' && args[i] != '*' && args[i] != '/')
             return ((void)(std::cout << "Error\n"), 1);
-        if (std::isalnum(args[i]))
+        if (std::isdigit(args[i]))
             num++;
         else if (args[i] == '+' || args[i] == '-' || args[i] == '*' || args[i] == '/')
             op++;
@@ -32,7 +32,7 @@ int main(int ac, char **av)
         return ((void)(std::cout << "Error\n"), 1);
     for (int i = 0; i < static_cast<int>(args.size()); i++)
     {
-        if (std::isalnum(args[i]))
+        if (std::isdigit(args[i]))
             rpn.push(args[i] - '0');
         else if (args[i] == '+' || args[i] == '-' || args[i] == '*' || args[i] == '/')
         {
