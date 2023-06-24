@@ -9,7 +9,7 @@ void date_form(std::string& line)
     int month = std::atoi(line.substr(5, 2).c_str());
     int day = std::atoi(line.substr(8, 2).c_str());
 
-    if (year < 2009 || year > 2022 || month < 1 || month > 12 || day < 1 || day > 31)
+    if (year < 2009 || year > 2023 || month < 1 || month > 12 || day < 1 || day > 31)
         throw BAD_INPUT;
     for (size_t i = 0; i < line.size(); i++)
     {
@@ -21,7 +21,7 @@ void date_form(std::string& line)
 void value_form(std::string& line)
 {
 
-    if (std::atof(line.c_str()) >= 1000)
+    if (std::atof(line.c_str()) > 1000)
         throw "Error: too large a number.";
     if (std::atof(line.c_str()) < 0)
         throw "Error: not a positive number.";

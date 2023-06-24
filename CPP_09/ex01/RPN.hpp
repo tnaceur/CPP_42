@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <cctype>
+#include <exception>
 #include <stack>
 
 void skip_space(std::string &str, int& i);
