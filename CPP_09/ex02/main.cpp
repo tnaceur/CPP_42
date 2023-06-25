@@ -7,8 +7,8 @@ int main(int ac, char **av)
         if (ac == 1)
             throw WRONG_ARG;
         std::list<int> before;
-        double v_time, d_time;
-        list_sort(ac, av, before, v_time);
+        double l_time, d_time;
+        list_sort(ac, av, before, l_time);
         std::cout << "Before: ";
         print(before);
         std::deque<int> after;
@@ -16,7 +16,7 @@ int main(int ac, char **av)
         std::cout << "After:  ";
         print(after);
         std::cout << "Time to process a range of " << before.size() <<  " elements with std::list is : "
-            << v_time << " us" << std::endl;
+            << l_time << " us" << std::endl;
         std::cout << "Time to process a range of " << before.size() <<  " elements with std::deque is : "
             << d_time << " us" << std::endl;
     }
