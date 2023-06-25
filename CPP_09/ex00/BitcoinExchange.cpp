@@ -60,7 +60,8 @@ void    get_value(std::vector<std::string> &lines, std::map<std::string, float>&
                 if (data[date] == 0)
                 {
                     std::map<std::string, float>::iterator exchange = data.lower_bound(date);
-                    exchange--;
+                    if (exchange != data.begin())
+                        exchange--;
                     std::cout << date << " => " << value << " = " << (std::atof(value.c_str()) * exchange->second) << std::endl;
                 }
                 else
